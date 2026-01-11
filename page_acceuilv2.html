@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Global Tek — Solutions Industrielles | Algérie</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0076B6',
+            accent: '#00AEEF',
+            surface: '#FFFFFF',
+            background: '#F0F4F8',
+            border: '#E0E6EB',
+            textPrimary: '#1E293B',
+            textSecondary: '#64748B',
+            dark: '#03374D'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F0F4F8;
+      color: #1E293B;
+      scroll-behavior: smooth;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .counter {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #0076B6;
+    }
+    .product-card {
+      background: white;
+      border: 1px solid #E0E6EB;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .product-card:hover {
+      border-color: #0076B6;
+      box-shadow: 0 12px 30px rgba(0, 118, 182, 0.15);
+      transform: translateY(-8px);
+    }
+    .model-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+    .badge-entry { background: #F0F9FF; color: #0076B6; }
+    .badge-pro { background: #ECFDF5; color: #10B981; }
+    .badge-flagship { background: #F0F4FF; color: #00AEEF; }
+    .timeline-line {
+      position: relative;
+      padding-left: 32px;
+    }
+    .timeline-line::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #0076B6;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 32px;
+      padding-left: 20px;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -32px;
+      top: 6px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #0076B6;
+      border: 4px solid #FFFFFF;
+      box-shadow: 0 0 0 2px #E0E6EB;
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-surface shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-lg bg-[#0076B6] flex items-center justify-center">
+          <span class="text-white font-bold">GT</span>
+        </div>
+        <span class="text-xl font-bold text-primary">Global Tek</span>
+      </div>
+      <div class="flex items-center space-x-6">
+        <div class="flex space-x-2 bg-gray-100 rounded-full p-1">
+          <a href="#" class="px-3 py-1 text-xs font-medium rounded-full bg-white text-primary shadow-sm">FR</a>
+          <a href="#" class="px-3 py-1 text-xs font-medium rounded-full text-gray-500 hover:bg-white hover:shadow-sm">EN</a>
+          <a href="#" class="px-3 py-1 text-xs font-medium rounded-full text-gray-500 hover:bg-white hover:shadow-sm">AR</a>
+        </div>
+        <button class="bg-primary text-white px-6 py-2.5 rounded-lg font-medium hover:bg-[#005a8c] transition shadow-md hover:shadow-lg">
+          <i class="fa fa-file-invoice mr-2"></i> Demander un Devis
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-r from-[#0076B6] to-[#00AEEF] text-white pt-24 pb-20">
+    <div class="container mx-auto px-6 text-center max-w-4xl">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 fade-in leading-tight">
+        Machines Industrielles de Précision<br><span class="font-light">Pour l’Industrie Algérienne</span>
+      </h1>
+      <p class="text-xl mb-8 fade-in" style="transition-delay: 0.2s">
+        Distributeur agréé de Huayue (ChinaHPM), GMB Machinery & TechPlast — avec support local, formation certifiée et SAV à vie.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4 fade-in" style="transition-delay: 0.4s">
+        <a href="#machines" class="bg-white text-primary px-7 py-3.5 rounded-lg font-bold hover:bg-gray-100 transition shadow-lg hover:shadow-xl">
+          Explorer nos machines
+        </a>
+        <a href="#contact" class="border-2 border-white text-white px-7 py-3.5 rounded-lg font-bold hover:bg-white/10 transition">
+          Contacter un expert
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="py-16 bg-surface -mt-12 relative z-10">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="fade-in">
+          <div class="counter" id="clients">0</div>
+          <p class="text-gray-600 mt-2">Clients équipés</p>
+          <p class="text-xs text-green-600 mt-1">+12 cette semaine</p>
+        </div>
+        <div class="fade-in">
+          <div class="counter" id="machines">0</div>
+          <p class="text-gray-600 mt-2">Machines installées</p>
+        </div>
+        <div class="fade-in">
+          <div class="counter" id="years">0</div>
+          <p class="text-gray-600 mt-2">Années d’expertise</p>
+        </div>
+        <div class="fade-in">
+          <div class="counter" id="partners">0</div>
+          <p class="text-gray-600 mt-2">Partenaires mondiaux</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- À propos -->
+  <section class="py-20">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto text-center mb-16">
+        <h2 class="text-3xl font-bold text-primary mb-4 fade-in">Notre Engagement Industriel</h2>
+        <p class="text-gray-700 fade-in" style="transition-delay: 0.2s">
+          Depuis 2015, nous accompagnons les industriels algériens avec des machines de haute précision, issues des leaders mondiaux, et un support local réactif.
+        </p>
+      </div>
+
+      <div class="max-w-3xl mx-auto timeline-line fade-in" style="transition-delay: 0.4s">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <h3 class="font-bold text-lg">2015 — Fondation</h3>
+          <p class="text-gray-600 mt-2">Création de Global Tek à Alger, premier distributeur agréé ChinaHPM en Algérie.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <h3 class="font-bold text-lg">2018 — Partenariat GMB</h3>
+          <p class="text-gray-600 mt-2">Distribution exclusive des laminageurs thermiques GMB Machinery pour l’Afrique du Nord.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <h3 class="font-bold text-lg">2021 — Centre de Formation</h3>
+          <p class="text-gray-600 mt-2">Ouverture du centre de formation certifié à Rouiba — +200 techniciens formés/an.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <h3 class="font-bold text-lg">2024 — 500+ Machines</h3>
+          <p class="text-gray-600 mt-2">Présence nationale : Alger, Oran, Constantine, Annaba.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fournisseurs -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-primary text-center mb-4 fade-in">Nos Partenaires Stratégiques</h2>
+      <p class="text-gray-600 text-center mb-12 fade-in" style="transition-delay: 0.2s">Nous ne revendons pas — nous sélectionnons.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-surface p-7 rounded-2xl border border-border fade-in">
+          <div class="flex items-start mb-4">
+            <div class="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center mr-4">
+              <span class="font-bold text-primary text-xl">H</span>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">Huayue Group (ChinaHPM)</h3>
+              <span class="model-badge badge-flagship">Partenaire Principal</span>
+            </div>
+          </div>
+          <p class="text-gray-600 text-sm mb-4">
+            Leader mondial des machines de découpe papier depuis 1998. Précision allemande, robustesse chinoise.
+          </p>
+          <ul class="text-xs text-gray-500 space-y-1 mb-4">
+            <li>✓ Positionnement à 0.01mm</li>
+            <li>✓ Jusqu’à 45 coupes/minute</li>
+            <li>✓ Interface tactile 16"-22"</li>
+          </ul>
+          <a href="https://www.chinahpm.com" target="_blank" class="inline-flex items-center text-primary font-medium text-sm hover:underline">
+            Voir leurs machines <i class="fa fa-external-link-alt ml-1"></i>
+          </a>
+        </div>
+
+        <div class="bg-surface p-7 rounded-2xl border border-border fade-in">
+          <div class="flex items-start mb-4">
+            <div class="w-14 h-14 rounded-xl bg-green-50 flex items-center justify-center mr-4">
+              <span class="font-bold text-green-700 text-xl">G</span>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">GMB Machinery</h3>
+              <span class="model-badge badge-pro">Fournisseur Certifié</span>
+            </div>
+          </div>
+          <p class="text-gray-600 text-sm mb-4">
+            Spécialiste des laminageurs thermiques industriels. Fiabilité extrême, consommation énergétique optimisée.
+          </p>
+          <ul class="text-xs text-gray-500 space-y-1 mb-4">
+            <li>✓ Température contrôlée à ±1°C</li>
+            <li>✓ Vitesse jusqu’à 30 m/min</li>
+            <li>✓ Compatible films recyclés</li>
+          </ul>
+          <a href="https://www.gmbmachinery.com" target="_blank" class="inline-flex items-center text-primary font-medium text-sm hover:underline">
+            Découvrir <i class="fa fa-external-link-alt ml-1"></i>
+          </a>
+        </div>
+
+        <div class="bg-surface p-7 rounded-2xl border border-border fade-in">
+          <div class="flex items-start mb-4">
+            <div class="w-14 h-14 rounded-xl bg-purple-50 flex items-center justify-center mr-4">
+              <span class="font-bold text-purple-700 text-xl">T</span>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">TechPlast Systems</h3>
+              <span class="model-badge badge-entry">Partenaire Local</span>
+            </div>
+          </div>
+          <p class="text-gray-600 text-sm mb-4">
+            Fabricant algérien de lignes de thermoformage. Adapté aux normes locales, service rapide.
+          </p>
+          <ul class="text-xs text-gray-500 space-y-1 mb-4">
+            <li>✓ Pièces détachées en stock</li>
+            <li>✓ Techniciens sur site sous 48h</li>
+            <li>✓ Formation gratuite</li>
+          </ul>
+          <a href="#" class="inline-flex items-center text-primary font-medium text-sm hover:underline">
+            En savoir plus <i class="fa fa-external-link-alt ml-1"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Machines -->
+  <section id="machines" class="py-20">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-primary mb-4 fade-in">Nos Machines Phares</h2>
+        <p class="text-gray-600 fade-in" style="transition-delay: 0.2s">Choisissez selon vos besoins, votre budget et votre volume de production.</p>
+      </div>
+
+      <!-- Comparateur -->
+      <div class="overflow-x-auto mb-12 fade-in" style="transition-delay: 0.4s">
+        <table class="min-w-full bg-surface rounded-xl border border-border overflow-hidden">
+          <thead class="bg-gray-50">
+            <tr>
+              <th class="text-left p-4">Modèle</th>
+              <th class="text-left p-4">S16 — Entry</th>
+              <th class="text-left p-4">S19 — Pro</th>
+              <th class="text-left p-4">S22 — Flagship</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border">
+            <tr>
+              <td class="p-4 font-medium">Écran tactile</td>
+              <td class="p-4">16"</td>
+              <td class="p-4">19"</td>
+              <td class="p-4">22"</td>
+            </tr>
+            <tr class="bg-blue-50">
+              <td class="p-4 font-medium">Précision</td>
+              <td class="p-4">±0.01 mm</td>
+              <td class="p-4">±0.01 mm</td>
+              <td class="p-4">±0.01 mm</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-medium">Vitesse</td>
+              <td class="p-4">45 coupes/min</td>
+              <td class="p-4">50 coupes/min</td>
+              <td class="p-4">55 coupes/min</td>
+            </tr>
+            <tr class="bg-blue-50">
+              <td class="p-4 font-medium">Connectivité</td>
+              <td class="p-4">USB</td>
+              <td class="p-4">Wi-Fi + Ethernet</td>
+              <td class="p-4">Wi-Fi + Ethernet + Cloud</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-medium">Gestion des jobs</td>
+              <td class="p-4">300 programmes</td>
+              <td class="p-4">500 programmes</td>
+              <td class="p-4">PDF/JDF direct + QR Code</td>
+            </tr>
+            <tr>
+              <td class="p-4"></td>
+              <td class="p-4"><button class="text-sm bg-blue-50 text-primary px-4 py-1.5 rounded-lg">Détails</button></td>
+              <td class="p-4"><button class="text-sm bg-green-50 text-success px-4 py-1.5 rounded-lg">Détails</button></td>
+              <td class="p-4"><button class="text-sm bg-indigo-50 text-accent px-4 py-1.5 rounded-lg">Détails</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Fiches produits -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div class="product-card fade-in">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="font-bold text-xl">Machine X500 — Impression</h3>
+              <span class="model-badge badge-pro">Pro</span>
+            </div>
+            <div class="bg-gray-100 border-2 border-dashed rounded-xl w-full h-56 flex items-center justify-center text-gray-400 mb-5">
+              <i class="fa fa-industry text-5xl"></i>
+            </div>
+            <ul class="text-sm text-gray-700 space-y-2 mb-5">
+              <li><i class="fa fa-check text-green-500 mr-2"></i> <strong>Précision :</strong> ±0.02 mm</li>
+              <li><i class="fa fa-check text-green-500 mr-2"></i> <strong>Vitesse :</strong> 150 m/min</li>
+              <li><i class="fa fa-check text-green-500 mr-2"></i> <strong>Interface :</strong> Écran tactile 19"</li>
+              <li><i class="fa fa-check text-green-500 mr-2"></i> <strong>ROI :</strong> Économie de 120 000 DZD/an en main d’œuvre</li>
+            </ul>
+            <div class="flex space-x-4">
+              <button class="text-primary text-sm font-medium hover:underline flex items-center">
+                <i class="fa fa-file-pdf mr-1"></i> Fiche technique
+              </button>
+              <button class="text-primary text-sm font-medium hover:underline flex items-center">
+                <i class="fa fa-play mr-1"></i> Vidéo démo
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card fade-in">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="font-bold text-xl">EMB-200 — Emballage</h3>
+              <span class="model-badge badge-flagship">Flagship</span>
+            </div>
+            <div class="bg-gray-100 border-2 border-dashed rounded-xl w-full h-56 flex items-center justify-center text-gray-400 mb-5">
+              <i class="fa fa-box-open text-5xl"></i>
+            </div>
+            <ul class="text-sm text-gray-700 space-y-2 mb-5">
+              <li><i class="fa fa-check text-green-500 mr-2"></i> <strong>Capacité :</strong> 200 paquets/min</li>
+              <li><i class="fa fa-check text-green-500 mr-2"></i> <strong>Automatique :</strong> 24/7 sans supervision</li>
+              <li><i class="fa fa-check text-green-500 mr-2"></i> <strong>Garantie :</strong> 24 mois pièces & main d’œuvre</li>
+              <li><i class="fa fa-check text-green-500 mr-2"></i> <strong>Cas client :</strong> +35% productivité chez Acme Industries</li>
+            </ul>
+            <div class="flex space-x-4">
+              <button class="text-primary text-sm font-medium hover:underline flex items-center">
+                <i class="fa fa-file-pdf mr-1"></i> Fiche technique
+              </button>
+              <button class="text-primary text-sm font-medium hover:underline flex items-center">
+                <i class="fa fa-play mr-1"></i> Vidéo démo
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section id="contact" class="py-20 bg-gradient-to-r from-[#0076B6] to-[#00AEEF] text-white">
+    <div class="container mx-auto px-6 text-center max-w-3xl">
+      <h2 class="text-3xl font-bold mb-4 fade-in">Modernisez Votre Ligne de Production</h2>
+      <p class="text-xl mb-8 fade-in" style="transition-delay: 0.2s">
+        Obtenez une analyse gratuite de vos besoins avec un expert Global Tek.
+      </p>
+      <button class="bg-white text-primary px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition shadow-lg fade-in" style="transition-delay: 0.4s">
+        <i class="fa fa-comments mr-2"></i> Parler à un expert
+      </button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white pt-16 pb-8">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div>
+          <div class="flex items-center space-x-2 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-accent flex items-center justify-center">
+              <span class="font-bold text-dark">GT</span>
+            </div>
+            <span class="font-bold text-xl">Global Tek</span>
+          </div>
+          <p class="text-gray-300 text-sm">
+            Distributeur agréé de machines industrielles en Algérie depuis 2015. Précision, fiabilité, support local.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Solutions</h4>
+          <ul class="text-gray-300 text-sm space-y-2">
+            <li><a href="#" class="hover:text-accent">Impression</a></li>
+            <li><a href="#" class="hover:text-accent">Emballage</a></li>
+            <li><a href="#" class="hover:text-accent">Plastique</a></li>
+            <li><a href="#" class="hover:text-accent">Maintenance</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Support</h4>
+          <ul class="text-gray-300 text-sm space-y-2">
+            <li><a href="#" class="hover:text-accent">Devis en ligne</a></li>
+            <li><a href="#" class="hover:text-accent">Formation</a></li>
+            <li><a href="#" class="hover:text-accent">SAV technique</a></li>
+            <li><a href="#" class="hover:text-accent">Pièces détachées</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Contact</h4>
+          <p class="text-gray-300 text-sm">Zone Industrielle Rouiba<br>16000 Alger, Algérie</p>
+          <p class="text-gray-300 text-sm mt-2">📞 +213 23 45 67 89</p>
+          <p class="text-gray-300 text-sm">✉️ contact@globaltek.dz</p>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-6 text-center text-gray-400 text-sm">
+        © 2026 Global Tek. Tous droits réservés. Distributeur agréé de Huayue Group & GMB Machinery.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Animation au scroll
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('appear');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+      });
+
+      // Compteurs
+      function animateCounter(id, target, duration = 2000) {
+        let start = 0;
+        const increment = target / (duration / 16);
+        const timer = setInterval(() => {
+          start += increment;
+          if (start >= target) {
+            document.getElementById(id).innerText = target.toLocaleString();
+            clearInterval(timer);
+          } else {
+            document.getElementById(id).innerText = Math.ceil(start).toLocaleString();
+          }
+        }, 16);
+      }
+
+      const counterSection = document.querySelector('.counter').closest('section');
+      const counterObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          animateCounter('clients', 520);
+          animateCounter('machines', 780);
+          animateCounter('years', 11);
+          animateCounter('partners', 3);
+          counterObserver.disconnect();
+        }
+      }, { threshold: 0.5 });
+      counterObserver.observe(counterSection);
+    });
+  </script>
+</body>
+</html>
